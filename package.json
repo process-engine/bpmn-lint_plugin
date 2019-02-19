@@ -1,0 +1,22 @@
+{
+  "name": "bpmnlint-plugin-process-engine",
+  "version": "1.0.0",
+  "description": "The plugin used to describe and develop Process Engine specific rules for the bpmn linter.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/process-engine/bpmn-lint_plugin.git"
+  },
+  "author": "Bastian Schnittger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/process-engine/bpmn-lint_plugin/issues"
+  },
+  "homepage": "https://github.com/process-engine/bpmn-lint_plugin#readme",
+  "dependencies": {
+    "bpmnlint-utils": "^1.0.1"
+  }
+}
