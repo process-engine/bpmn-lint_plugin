@@ -1,6 +1,6 @@
 dist
 package-lock.json
-rules
+rules/*
 
 ### Node ###
 # Logs
