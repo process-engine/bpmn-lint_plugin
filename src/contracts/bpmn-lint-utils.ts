@@ -10,7 +10,7 @@ export interface BpmnLintUtils {
   is(node: IModdleElement, type: string): boolean;
 
   /**
-   * Checks if the given nide if of any of the given types.
+   * Checks if the given node is of any of the given types.
    *
    * @param {IModdleElememt} node The node to check.
    * @param {string} types The types to check the node for.
