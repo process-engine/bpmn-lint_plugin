@@ -1,4 +1,4 @@
-import {IModdleElement, IProcessRef} from '@process-engine/bpmn-elements_contracts';
+import {IModdleElement} from '@process-engine/bpmn-elements_contracts';
 
 import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
@@ -9,7 +9,7 @@ import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 module.exports = (): any => {
 
   function hasNoStartEvent(node: IModdleElement): boolean {
-    const flowElements: Array<IModdleElement> = node.flowElements;
+    const flowElements: Array<IModdleElement> = node.processRef.flowElements || [];
 
     const startEventPresent: boolean = flowElements.some((element: IModdleElement) => {
       return lintUtils.is(element, 'bpmn:StartEvent');
@@ -18,26 +18,15 @@ module.exports = (): any => {
     return !startEventPresent;
   }
 
-  function getParticipantOfProcess(process: IProcessRef): IModdleElement {
-    const collaboration: IModdleElement = process.$parent.rootElements.find((element: IModdleElement) => {
-      return lintUtils.is(element, 'bpmn:Collaboration');
-    });
-
-    const participant: IModdleElement = collaboration.participants[0];
-
-    return participant;
-  }
-
   function check(node: IModdleElement, reporter: BpmnLintReporter): void {
-    const nodeIsProcessOrSubProcess: boolean = lintUtils.isAny(node, ['bpmn:Process', 'bpmn:SubProcess']);
+    const nodeIsParticipant: boolean = lintUtils.is(node, 'bpmn:Participant');
 
-    if (nodeIsProcessOrSubProcess) {
-      const processHasNoStartEvent: boolean = hasNoStartEvent(node);
+    if (nodeIsParticipant) {
+      const participantHasNoStartEvent: boolean = hasNoStartEvent(node);
 
-      if (processHasNoStartEvent) {
-        const participant: IModdleElement = getParticipantOfProcess(node as IProcessRef);
+      if (participantHasNoStartEvent) {
 
-        reporter.report(participant.id, 'This process has no StartEvent');
+        reporter.report(node.id, 'This process has no StartEvent');
       }
 
     }
