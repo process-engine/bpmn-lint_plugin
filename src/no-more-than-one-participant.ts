@@ -4,9 +4,9 @@ import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
 /**
- * Rule that reports conditional start events.
+ * Rule that reports if the given process has more than one participant.
  *
- * Conditional start events are currently not supported by the Process Engine.
+ * Multiple participants are currently not supported by the Process Engine.
  */
 module.exports = (): any => {
 
