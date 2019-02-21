@@ -8,23 +8,23 @@ import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
  */
 module.exports = (): any => {
 
-  function hasNoStartEvent(node: IModdleElement): boolean {
+  function hasNoEndEvent(node: IModdleElement): boolean {
     const flowElements: Array<IModdleElement> = node.processRef.flowElements || [];
 
-    const startEventPresent: boolean = flowElements.some((element: IModdleElement) => {
+    const endEventPresent: boolean = flowElements.some((element: IModdleElement) => {
       return lintUtils.is(element, 'bpmn:EndEvent');
     });
 
-    return !startEventPresent;
+    return !endEventPresent;
   }
 
   function check(node: IModdleElement, reporter: BpmnLintReporter): void {
     const nodeIsParticipant: boolean = lintUtils.is(node, 'bpmn:Participant');
 
     if (nodeIsParticipant) {
-      const participantHasNoStartEvent: boolean = hasNoStartEvent(node);
+      const participantHasNoEndEvent: boolean = hasNoEndEvent(node);
 
-      if (participantHasNoStartEvent) {
+      if (participantHasNoEndEvent) {
 
         reporter.report(node.id, 'This process has no EndEvent');
       }
