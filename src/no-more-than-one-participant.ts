@@ -12,16 +12,16 @@ module.exports = (): any => {
 
   function check(node: IModdleElement, reporter: BpmnLintReporter): void {
 
-    const maxParticipantCount: number = 2;
+    const maxParticipantCount: number = 1;
     let participantCount: number = 0;
 
     const nodeIsParticipant: boolean = lintUtils.is(node, 'bpmn:Participant');
     if (nodeIsParticipant) {
       participantCount = participantCount + 1;
 
-      const tooManyPaticipantsPresent: boolean = participantCount >= maxParticipantCount;
+      const tooManyPaticipantsPresent: boolean = participantCount > maxParticipantCount;
       if (tooManyPaticipantsPresent) {
-        reporter.report(node.id, 'Two or more Participants are currently not supported');
+        reporter.report(node.id, 'It is not supported to use more than one participant');
       }
 
     }
