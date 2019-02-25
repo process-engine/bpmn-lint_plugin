@@ -8,7 +8,7 @@ module.exports = {
         'process-engine/no-duplicate-ids': 'error',
         'process-engine/no-conditional-start-event': 'error',
         'process-engine/no-compensation-end-event': 'error',
-        'process-engine/no-escalation-end-event': 'error'
+        'process-engine/no-escalation-end-event': 'error',
       }
     },
   }
