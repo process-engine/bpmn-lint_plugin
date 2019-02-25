@@ -11,6 +11,7 @@ module.exports = {
         'process-engine/no-escalation-end-event': 'error',
         'process-engine/no-cancel-boundary-event': 'error',
         'process-engine/no-compensation-boundary-event': 'error',
+        'process-engine/no-conditional-boundary-event': 'error',
       }
     },
   }
