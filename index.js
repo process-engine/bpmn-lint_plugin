@@ -7,6 +7,7 @@ module.exports = {
         'process-engine/end-event-required': 'error',
         'process-engine/no-duplicate-ids': 'error',
         'process-engine/no-conditional-start-event': 'error',
+        'process-engine/no-compensation-end-event': 'error',
       }
     },
   }
