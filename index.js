@@ -16,6 +16,7 @@ module.exports = {
         'process-engine/no-intermediate-escalation-throw-event': 'error',
         'process-engine/no-intermediate-compensation-throw-event': 'error',
         'process-engine/no-business-rule-task': 'error',
+        'process-engine/no-complex-gateway': 'error',
       }
     },
   }
