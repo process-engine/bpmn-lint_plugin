@@ -9,6 +9,7 @@ module.exports = {
         'process-engine/no-conditional-start-event': 'error',
         'process-engine/no-compensation-end-event': 'error',
         'process-engine/no-escalation-end-event': 'error',
+        'process-engine/no-cancel-boundary-event': 'error',
       }
     },
   }
