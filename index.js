@@ -14,6 +14,7 @@ module.exports = {
         'process-engine/no-conditional-boundary-event': 'error',
         'process-engine/no-escalation-boundary-event': 'error',
         'process-engine/no-intermediate-escalation-throw-event': 'error',
+        'process-engine/no-intermediate-compensation-throw-event': 'error'
       }
     },
   }
