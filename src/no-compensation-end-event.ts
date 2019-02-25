@@ -18,11 +18,11 @@ module.exports = (): any => {
       const endEventHasEventDefinitions: boolean = node.eventDefinitions !== undefined;
       if (endEventHasEventDefinitions) {
 
-        const endEventIsConditional: boolean = node.eventDefinitions.some((definition: IModdleElement) => {
+        const endEventIsCompensationEndEvent: boolean = node.eventDefinitions.some((definition: IModdleElement) => {
           return lintUtils.is(definition, 'bpmn:CompensateEventDefinition');
         });
 
-        if (endEventIsConditional) {
+        if (endEventIsCompensationEndEvent) {
           reporter.report(node.id, 'Compensation EndEvents are currently not supported!');
         }
       }
