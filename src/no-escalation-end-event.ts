@@ -18,11 +18,11 @@ module.exports = (): any => {
       const endEventHasEventDefinitions: boolean = node.eventDefinitions !== undefined;
       if (endEventHasEventDefinitions) {
 
-        const endEventIsConditional: boolean = node.eventDefinitions.some((definition: IModdleElement) => {
+        const endEventIsEscalationEndEvent: boolean = node.eventDefinitions.some((definition: IModdleElement) => {
           return lintUtils.is(definition, 'bpmn:EscalationEventDefinition');
         });
 
-        if (endEventIsConditional) {
+        if (endEventIsEscalationEndEvent) {
           reporter.report(node.id, 'Escalation EndEvents are currently not supported!');
         }
       }
