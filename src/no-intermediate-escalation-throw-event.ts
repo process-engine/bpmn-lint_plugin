@@ -6,7 +6,7 @@ import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 /**
  * Rule that reports if the process contains a intermediate escalation ThrowEvent.
  *
- * Intermediate escalation ThrowEvent are currently not supported by the ProcessEngine.
+ * IntermediateEscalationThrowEvent are currently not supported by the ProcessEngine.
  */
 module.exports = (): any => {
 
@@ -23,7 +23,7 @@ module.exports = (): any => {
         });
 
         if (intermediateEventIsEscalationEvent) {
-          reporter.report(node.id, 'Intemediate escalation ThrowEvents are currently not supported!');
+          reporter.report(node.id, 'IntemediateEscalationThrowEvents are currently not supported!');
         }
       }
 

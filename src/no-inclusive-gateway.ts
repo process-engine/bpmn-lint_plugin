@@ -4,9 +4,9 @@ import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
 /**
- * Rule that reports if the process contains a inclusive Gateway.
+ * Rule that reports if the process contains a InclusiveGateway.
  *
- * Inclusive Gateways are currently not supported by the ProcessEngine.
+ * InclusiveGateways are currently not supported by the ProcessEngine.
  */
 module.exports = (): any => {
 
@@ -15,7 +15,7 @@ module.exports = (): any => {
     const nodeIsInclusiveGateway: boolean = lintUtils.is(node, 'bpmn:InclusiveGateway');
     if (nodeIsInclusiveGateway) {
 
-      reporter.report(node.id, 'Inclusive Gateways are currently not supported!');
+      reporter.report(node.id, 'InclusiveGateways are currently not supported!');
     }
   }
 

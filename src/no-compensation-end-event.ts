@@ -4,9 +4,9 @@ import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
 /**
- * Rule that reports if a process contains a compensation EndEvent.
+ * Rule that reports if a process contains a CompensationEndEvent.
  *
- * Compensation EndEvents are currently not supported by the ProcessEngine.
+ * CompensationEndEvents are currently not supported by the ProcessEngine.
  */
 module.exports = (): any => {
 
@@ -23,7 +23,7 @@ module.exports = (): any => {
         });
 
         if (endEventIsCompensationEndEvent) {
-          reporter.report(node.id, 'Compensation EndEvents are currently not supported!');
+          reporter.report(node.id, 'CompensationEndEvents are currently not supported!');
         }
       }
 

@@ -4,9 +4,9 @@ import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
 /**
- * Rule that reports if the process contains a conditional BoundaryEvent.
+ * Rule that reports if the process contains a ConditionalBoundaryEvent.
  *
- * Conditional BoundaryEvents are currently not supported by the ProcessEngine.
+ * ConditionalBoundaryEvents are currently not supported by the ProcessEngine.
  */
 module.exports = (): any => {
 
@@ -23,7 +23,7 @@ module.exports = (): any => {
         });
 
         if (boundaryEventIsConditionalEvent) {
-          reporter.report(node.id, 'Conditional BoundaryEvents are currently not supported!');
+          reporter.report(node.id, 'ConditionalBoundaryEvents are currently not supported!');
         }
       }
 

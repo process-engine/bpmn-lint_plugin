@@ -3,7 +3,7 @@ import {IModdleElement} from '@process-engine/bpmn-elements_contracts';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
 /**
- * Rule that reports if a process has two or more nodes with the same id.
+ * Rule that reports if a process has two or more FlowNodes with the same ID.
  */
 module.exports = (): any => {
 

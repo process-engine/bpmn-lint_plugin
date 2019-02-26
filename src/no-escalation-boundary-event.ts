@@ -4,9 +4,9 @@ import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
 /**
- * Rule that reports if the process contains a escalation BoundaryEvent.
+ * Rule that reports if the process contains a EscalationBoundaryEvent.
  *
- * Escalation BoundaryEvents are currently not supported by the ProcessEngine.
+ * EscalationBoundaryEvents are currently not supported by the ProcessEngine.
  */
 module.exports = (): any => {
 
@@ -23,7 +23,7 @@ module.exports = (): any => {
         });
 
         if (boundaryEventIsEscalationEvent) {
-          reporter.report(node.id, 'Escalation BoundaryEvents are currently not supported!');
+          reporter.report(node.id, 'EscalationBoundaryEvents are currently not supported!');
         }
       }
 

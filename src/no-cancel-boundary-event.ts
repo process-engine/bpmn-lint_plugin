@@ -4,9 +4,9 @@ import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
 /**
- * Rule that reports if the process contains a cancel BoundaryEvent.
+ * Rule that reports if the process contains a CancelBoundaryEvent.
  *
- * Cancel BoundaryEvents are currently not supported by the ProcessEngine.
+ * CancelBoundaryEvents are currently not supported by the ProcessEngine.
  */
 module.exports = (): any => {
 
@@ -23,7 +23,7 @@ module.exports = (): any => {
         });
 
         if (boundaryEventIsCancelEvent) {
-          reporter.report(node.id, 'Cancel BoundaryEvents are currently not supported!');
+          reporter.report(node.id, 'CancelBoundaryEvents are currently not supported!');
         }
       }
 

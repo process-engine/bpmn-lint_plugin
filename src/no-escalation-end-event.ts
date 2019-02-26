@@ -4,9 +4,9 @@ import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
 /**
- * Rule that reports if a process contains an escalation EndEvent.
+ * Rule that reports if a process contains an EscalationEndEvent.
  *
- * Escalation EndEvents are currently not supported by the ProcessEngine.
+ * EscalationEndEvents are currently not supported by the ProcessEngine.
  */
 module.exports = (): any => {
 
@@ -23,7 +23,7 @@ module.exports = (): any => {
         });
 
         if (endEventIsEscalationEndEvent) {
-          reporter.report(node.id, 'Escalation EndEvents are currently not supported!');
+          reporter.report(node.id, 'EscalationEndEvents are currently not supported!');
         }
       }
 

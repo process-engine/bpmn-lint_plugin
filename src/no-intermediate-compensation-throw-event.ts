@@ -4,9 +4,9 @@ import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
 /**
- * Rule that reports if the process contains a intermediate compensation ThrowEvent.
+ * Rule that reports if the process contains a IntermediateCompensationThrowEvent.
  *
- * Intermediate compensation ThrowEvent are currently not supported by the ProcessEngine.
+ * IntermediateCompensationThrowEvent are currently not supported by the ProcessEngine.
  */
 module.exports = (): any => {
 
@@ -23,7 +23,7 @@ module.exports = (): any => {
         });
 
         if (intermediateEventIsCompensationEvent) {
-          reporter.report(node.id, 'Intemediate compensation ThrowEvents are currently not supported!');
+          reporter.report(node.id, 'IntermediateCompensationThrowEvent are currently not supported!');
         }
       }
 

@@ -4,9 +4,9 @@ import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
 /**
- * Rule that reports if the process contains a conditional StartEvent.
+ * Rule that reports if the process contains a ConditionalStartEvent.
  *
- * Conditional StartEvents are currently not supported by the ProcessEngine.
+ * ConditionalStartEvents are currently not supported by the ProcessEngine.
  */
 module.exports = (): any => {
 
@@ -23,7 +23,7 @@ module.exports = (): any => {
         });
 
         if (startEventIsConditional) {
-          reporter.report(node.id, 'Conditional StartEvents are currently not supported!');
+          reporter.report(node.id, 'ConditionalStartEvents are currently not supported!');
         }
       }
 
