@@ -4,7 +4,7 @@ import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
 /**
- * Rule that reports if the process contains a intermediate escalation ThrowEvent.
+ * Rule that reports if the process contains a IntermediateEscalationThrowEvent.
  *
  * IntermediateEscalationThrowEvent are currently not supported by the ProcessEngine.
  */
