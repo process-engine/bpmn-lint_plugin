@@ -18,7 +18,10 @@ module.exports = {
         'process-engine/no-business-rule-task': 'error',
         'process-engine/no-complex-gateway': 'error',
         'process-engine/no-inclusive-gateway': 'error',
-        'process-engine/no-event-based-gateway': 'error'
+        'process-engine/no-event-based-gateway': 'error',
+        'process-engine/collaboration-required': 'error',
+        'process-engine/participant-required': 'error',
+        'process-engine/no-undefined-error-event': 'error'
       }
     },
   }
