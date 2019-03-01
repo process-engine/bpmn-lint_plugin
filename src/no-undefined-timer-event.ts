@@ -10,6 +10,7 @@ import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
  */
 module.exports = (): any => {
 
+  // tslint:disable:cyclomatic-complexity
   function check(node: IModdleElement, reporter: BpmnLintReporter): void {
 
     const nodeIsEvent: boolean = lintUtils.is(node, 'bpmn:BoundaryEvent')
@@ -20,6 +21,13 @@ module.exports = (): any => {
 
     if (nodeIsEvent) {
       const eventElement: IEventElement = node as IEventElement;
+
+      const eventContainsNoDefinitions: boolean = eventElement.eventDefinitions === undefined;
+
+      if (eventContainsNoDefinitions) {
+
+        return;
+      }
 
       const nodeIsTimerEvent: boolean = eventElement.eventDefinitions.some((eventDefinition: IModdleElement) => {
         return lintUtils.is(eventDefinition, 'bpmn:TimerEventDefinition');
@@ -36,7 +44,7 @@ module.exports = (): any => {
                                           && timerEventDefinition.timeDate === undefined
                                           && timerEventDefinition.timeCycle === undefined;
         if (timerRefIsUndefined) {
-          reporter.report(node.id, 'This Error Event is not defined.');
+          reporter.report(node.id, 'This Timer Event is not defined.');
         }
       }
     }
