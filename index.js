@@ -21,7 +21,9 @@ module.exports = {
         'process-engine/no-event-based-gateway': 'error',
         'process-engine/collaboration-required': 'error',
         'process-engine/participant-required': 'error',
-        'process-engine/no-undefined-error-event': 'error'
+        'process-engine/no-undefined-error-event': 'error',
+        'process-engine/no-undefined-timer-event': 'error',
+        'process-engine/no-undefined-signal-event': 'error'
       }
     },
   }
