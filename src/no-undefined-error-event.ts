@@ -13,10 +13,7 @@ module.exports = (): any => {
   function check(node: IModdleElement, reporter: BpmnLintReporter): void {
 
     const nodeIsEvent: boolean = lintUtils.is(node, 'bpmn:BoundaryEvent')
-                              || lintUtils.is(node, 'bpmn:EndEvent')
-                              || lintUtils.is(node, 'bpmn:StartEvent')
-                              || lintUtils.is(node, 'bpmn:IntermediateThrowEvent')
-                              || lintUtils.is(node, 'bpmn:IntermediateCatchEvent');
+                              || lintUtils.is(node, 'bpmn:EndEvent');
 
     if (nodeIsEvent) {
       const eventElement: IEventElement = node as IEventElement;
