@@ -18,6 +18,11 @@ module.exports = (): any => {
         return lintUtils.is(element, 'bpmn:Collaboration');
       });
 
+      const collaborationIsUndefined: boolean = collaboration === undefined;
+      if (collaborationIsUndefined) {
+        return;
+      }
+
       const collaborationContainsNoParticipant: boolean = collaboration.participants.length === 0;
       if (collaborationContainsNoParticipant) {
         const process: IModdleElement = definitions.rootElements.find((element: IModdleElement) => {
