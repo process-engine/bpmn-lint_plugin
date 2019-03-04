@@ -9,11 +9,10 @@ import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
  * Multiple participants are currently not supported by the Process Engine.
  */
 module.exports = (): any => {
+  const maxParticipantCount: number = 1;
+  let participantCount: number = 0;
 
   function check(node: IModdleElement, reporter: BpmnLintReporter): void {
-
-    const maxParticipantCount: number = 1;
-    let participantCount: number = 0;
 
     const nodeIsParticipant: boolean = lintUtils.is(node, 'bpmn:Participant');
     if (nodeIsParticipant) {

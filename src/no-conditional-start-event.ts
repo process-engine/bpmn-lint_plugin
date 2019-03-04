@@ -1,4 +1,4 @@
-import {IModdleElement} from '@process-engine/bpmn-elements_contracts';
+import {IEventElement, IModdleElement} from '@process-engine/bpmn-elements_contracts';
 import * as lintUtils from 'bpmnlint-utils';
 
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
@@ -14,11 +14,12 @@ module.exports = (): any => {
 
     const nodeIsStartEvent: boolean = lintUtils.is(node, 'bpmn:StartEvent');
     if (nodeIsStartEvent) {
+      const eventElement: IEventElement = node as IEventElement;
 
-      const startEventHasEventDefinitions: boolean = node.eventDefinitions !== undefined;
+      const startEventHasEventDefinitions: boolean = eventElement.eventDefinitions !== undefined;
       if (startEventHasEventDefinitions) {
 
-        const startEventIsConditional: boolean = node.eventDefinitions.some((definition: IModdleElement) => {
+        const startEventIsConditional: boolean = eventElement.eventDefinitions.some((definition: IModdleElement) => {
           return lintUtils.is(definition, 'bpmn:ConditionalEventDefinition');
         });
 
