@@ -1,4 +1,4 @@
-import {IModdleElement} from '@process-engine/bpmn-elements_contracts';
+import {IEventElement, IModdleElement} from '@process-engine/bpmn-elements_contracts';
 import * as lintUtils from 'bpmnlint-utils';
 
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
@@ -14,11 +14,12 @@ module.exports = (): any => {
 
     const nodeIsIntermediateThrowEvent: boolean = lintUtils.is(node, 'bpmn:IntermediateThrowEvent');
     if (nodeIsIntermediateThrowEvent) {
+      const eventElement: IEventElement = node as IEventElement;
 
-      const intermediateEventHasEventDefinitions: boolean = node.eventDefinitions !== undefined;
+      const intermediateEventHasEventDefinitions: boolean = eventElement.eventDefinitions !== undefined;
       if (intermediateEventHasEventDefinitions) {
 
-        const intermediateEventIsEscalationEvent: boolean = node.eventDefinitions.some((definition: IModdleElement) => {
+        const intermediateEventIsEscalationEvent: boolean = eventElement.eventDefinitions.some((definition: IModdleElement) => {
           return lintUtils.is(definition, 'bpmn:EscalationEventDefinition');
         });
 
