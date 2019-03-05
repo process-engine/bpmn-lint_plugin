@@ -22,7 +22,7 @@
     "bpmnlint-utils": "^1.0.1"
   },
   "devDependencies": {
-    "@process-engine/bpmn-elements_contracts": "1.1.0-df756a8f-b4",
+    "@process-engine/bpmn-elements_contracts": "2.0.0",
     "@essential-projects/tslint-config": "^1.1.5",
     "tsconfig": "^7.0.0",
     "tslint": "^5.12.0",
