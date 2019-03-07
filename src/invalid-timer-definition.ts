@@ -16,7 +16,12 @@ module.exports = (): any => {
     'bpmn:BoundaryEvent',
   ];
 
-  function validateTimerEventDefinition(timerEventDefinition: ITimerEventDefinition, rootNodeId: string, reporter: BpmnLintReporter): void {
+  function validateTimerEventDefinition(
+    timerEventDefinition: ITimerEventDefinition,
+    rootNodeId: string,
+    rootNodeIsStartEvent: boolean,
+    reporter: BpmnLintReporter,
+  ): void {
     const timerIsDate: boolean = timerEventDefinition.timeDate !== undefined;
     const timerIsDuration: boolean = timerEventDefinition.timeDuration !== undefined;
     const timerIsCycle: boolean = timerEventDefinition.timeCycle !== undefined;
@@ -43,16 +48,21 @@ module.exports = (): any => {
       const durationIsInvalid: boolean = !durationRegex.test(timerEventDefinition.timeDuration.body);
 
       if (durationIsInvalid) {
-        console.log(timerEventDefinition.timeDuration.body);
         reporter.report(rootNodeId, 'Duration is not in ISO8601 Syntax.');
       }
 
     } else if (timerIsCycle) {
       /**
-       * TODO: As specified in a special use case, we need to check if the
-       * Process contains a normal start Events, if the cyclic definition
-       * was attached on a StartEvent.
+       * Because of a specific use case, we need to accept a Process which contains
+       * a cyclic TimerStartEvent alongside a normal StartEvent.
+       *
+       * Explicitly testing this in the validator is kinda unreliable,
+       * we pass cyclic TimerEventDefinitions.
        */
+      if (rootNodeIsStartEvent) {
+        return;
+      }
+
       reporter.report(rootNodeId, 'Cyclic Timer definitions are currently not supported.');
     } else {
       reporter.report(rootNodeId, 'Unknown Timer Event Definition.');
@@ -77,7 +87,8 @@ module.exports = (): any => {
 
         if (currentEventDefIsTimer) {
           const currentTimerEventDefinition: ITimerEventDefinition = currentEventDefinition as ITimerEventDefinition;
-          validateTimerEventDefinition(currentTimerEventDefinition, node.id, reporter);
+          const nodeIsStartEvent: boolean = lintUtils.is(node, 'bpmn:StartEvent');
+          validateTimerEventDefinition(currentTimerEventDefinition, node.id, nodeIsStartEvent, reporter);
         }
       }
     }
