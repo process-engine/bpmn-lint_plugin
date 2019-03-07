@@ -73,8 +73,8 @@ module.exports = (): any => {
        * Because of a specific use case, we need to accept a Process which contains
        * a cyclic TimerStartEvent alongside a normal StartEvent.
        *
-       * Explicitly testing this in the validator is kinda unreliable,
-       * we pass cyclic TimerEventDefinitions.
+       * Since explicitly testing this in the validator is kinda unreliable,
+       * we pass cyclic TimerStartEvents
        */
       if (rootNodeIsStartEvent) {
         return;
