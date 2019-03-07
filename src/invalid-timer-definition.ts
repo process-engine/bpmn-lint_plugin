@@ -1,4 +1,4 @@
-import {IEventDefinition, IEventElement, IModdleElement, ITimerEventDefinition} from '@process-engine/bpmn-elements_contracts';
+import {IEventElement, IModdleElement, ITimerEventDefinition} from '@process-engine/bpmn-elements_contracts';
 import * as lintUtils from 'bpmnlint-utils';
 import {BpmnLintReporter} from './contracts/bpmn-lint-reporter';
 
