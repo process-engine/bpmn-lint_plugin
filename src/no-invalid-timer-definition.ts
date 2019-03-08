@@ -106,8 +106,6 @@ module.exports = (): any => {
           const currentTimerEventDefinition: ITimerEventDefinition = currentEventDefinition as ITimerEventDefinition;
           const nodeIsStartEvent: boolean = lintUtils.is(node, 'bpmn:StartEvent');
           validateTimerEventDefinition(currentTimerEventDefinition, node.id, nodeIsStartEvent, reporter);
-        } else {
-          continue;
         }
       }
     }
