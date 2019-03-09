@@ -11,16 +11,23 @@ module.exports = (): any => {
 
   function check(node: IModdleElement, reporter: BpmnLintReporter): void {
 
-    const nodeHasId: boolean = node.id !== undefined;
-    if (nodeHasId) {
-      const idAlreadyExists: boolean = existingIds.includes(node.id);
-
-      if (idAlreadyExists) {
-        reporter.report(node.id, 'ID already exists!');
-      }
-
-      existingIds.push(node.id);
+    const nodeHasNoId: boolean = node.id === undefined;
+    if (nodeHasNoId) {
+      return;
     }
+
+    const nodeIsFormField: boolean = node.$type === 'camunda:FormField';
+    if (nodeIsFormField) {
+      return;
+    }
+
+    const idAlreadyExists: boolean = existingIds.includes(node.id);
+
+    if (idAlreadyExists) {
+      reporter.report(node.id, 'ID already exists!');
+    }
+
+    existingIds.push(node.id);
   }
 
   return {
