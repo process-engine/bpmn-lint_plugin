@@ -16,6 +16,19 @@ module.exports = (): any => {
     'bpmn:BoundaryEvent',
   ];
 
+  function checkEmptyDefinition(timerDefinitionValue: string | undefined): boolean {
+    const definitionNotGiven: boolean = timerDefinitionValue === undefined;
+
+    if (definitionNotGiven) {
+
+      return true;
+    }
+
+    const isDefinitionEmpty: boolean = timerDefinitionValue.trim() === '';
+
+    return isDefinitionEmpty;
+  }
+
   function validateTimerEventDefinition(
     timerEventDefinition: ITimerEventDefinition,
     rootNodeId: string,
@@ -28,7 +41,7 @@ module.exports = (): any => {
 
     if (timerIsDate) {
       const timerDefinitionValue: string = timerEventDefinition.timeDate.body;
-      const valueIsEmpty: boolean = timerDefinitionValue.trim() === '';
+      const valueIsEmpty: boolean = checkEmptyDefinition(timerDefinitionValue);
 
       if (valueIsEmpty) {
         reporter.report(rootNodeId, 'Date is empty.');
@@ -49,7 +62,7 @@ module.exports = (): any => {
 
     } else if (timerIsDuration) {
       const timerDefinitionValue: string = timerEventDefinition.timeDuration.body;
-      const valueIsEmpty: boolean = timerDefinitionValue.trim() === '';
+      const valueIsEmpty: boolean = checkEmptyDefinition(timerDefinitionValue);
 
       if (valueIsEmpty) {
         reporter.report(rootNodeId, 'Duration is empty.');
