@@ -17,7 +17,7 @@ module.exports = (): any => {
                                                 || currentCallActivity.calledElement === null;
 
       if (calledElementNotAssigned) {
-        reporter.report(currentCallActivity.id, 'No CalledElement assigned');
+        reporter.report(currentCallActivity.id, 'No called element assigned');
       }
     }
   }
