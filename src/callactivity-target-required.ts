@@ -13,7 +13,8 @@ module.exports = (): any => {
 
     if (currentNodeIsCallActivity) {
       const currentCallActivity: ICallActivityElement = node as ICallActivityElement;
-      const calledElementNotAssigned: boolean = currentCallActivity.calledElement === null;
+      const calledElementNotAssigned: boolean = currentCallActivity.calledElement === undefined
+                                                || currentCallActivity.calledElement === null;
 
       if (calledElementNotAssigned) {
         reporter.report(currentCallActivity.id, 'No CalledElement assigned');
