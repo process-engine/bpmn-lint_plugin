@@ -26,8 +26,7 @@ module.exports = {
         'process-engine/no-undefined-error-event': 'error',
         'process-engine/no-undefined-timer-event': 'error',
         'process-engine/no-undefined-signal-event': 'error',
-        'process-engine/no-undefined-message-event': 'error',
-        'process-engine/no-invalid-timer-definition': 'error'
+        'process-engine/no-undefined-message-event': 'error'
       }
     },
   }
