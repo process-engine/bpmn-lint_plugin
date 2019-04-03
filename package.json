@@ -12,7 +12,7 @@
     "url": "git+https://github.com/process-engine/bpmn-lint_plugin.git"
   },
   "author": "Bastian Schnittger",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/process-engine/bpmn-lint_plugin/issues"
   },
