@@ -4,7 +4,7 @@
   "description": "The plugin used to describe and develop Process Engine specific rules for the bpmn linter.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "build": "tsc"
   },
   "repository": {
@@ -22,8 +22,9 @@
     "bpmnlint-utils": "^1.0.1"
   },
   "devDependencies": {
-    "@process-engine/bpmn-elements_contracts": "2.0.0",
     "@essential-projects/tslint-config": "^1.1.5",
+    "@process-engine/bpmn-elements_contracts": "2.0.0",
+    "@process-engine/ci_tools": "^2.2.1",
     "tsconfig": "^7.0.0",
     "tslint": "^5.12.0",
     "typescript": "^3.3.3"
