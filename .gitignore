@@ -1,5 +1,4 @@
 dist
-package-lock.json
 rules/*
 
 ### Node ###
@@ -8,6 +7,9 @@ logs
 *.log
 npm-debug.log*
 
+
+# lock-files
+yarn.lock
 
 # Dependency directory
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
