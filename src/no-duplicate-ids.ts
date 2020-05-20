@@ -16,8 +16,8 @@ module.exports = (): any => {
       return;
     }
 
-    const nodeIsFormField: boolean = node.$type === 'camunda:FormField';
-    if (nodeIsFormField) {
+    const nodeIsFormFieldOrValue: boolean = node.$type === 'camunda:FormField' || node.$type === 'camunda:Value';
+    if (nodeIsFormFieldOrValue) {
       return;
     }
 
