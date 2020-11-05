@@ -1,6 +1,6 @@
 {
   "name": "bpmnlint-plugin-process-engine",
-  "version": "1.8.0",
+  "version": "1.8.0-alpha.1",
   "description": "The plugin used to describe and develop Process Engine specific rules for the bpmn linter.",
   "main": "index.js",
   "scripts": {
